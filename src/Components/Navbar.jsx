@@ -3,7 +3,7 @@ import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navLinks = ['Home', 'Properties', 'Corporate', 'About Us', 'Insights', 'Contact'];
+  const navLinks = ['Home', 'Properties', 'Services', 'About Us', 'Insights', 'Contact'];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md">
@@ -23,7 +23,7 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="text-sm font-bold text-slate-600 hover:text-[#1d4e89] transition-colors border-b-2 border-transparent hover:border-[#1d4e89] py-1">
+            <a key={item} href={`/${item.toLowerCase()}`} className="text-sm font-bold text-slate-600 hover:text-[#1d4e89] transition-colors border-b-2 border-transparent hover:border-[#1d4e89] py-1">
               {item}
             </a>
           ))}
@@ -50,7 +50,7 @@ const Navbar = () => {
           <div className="fixed inset-x-0 top-20 bg-white shadow-2xl border-t border-slate-100 animate-in slide-in-from-top duration-300">
             <div className="flex flex-col p-8 gap-6">
               {navLinks.map((item) => (
-                <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsOpen(false)} className="text-xl font-bold text-slate-800 flex justify-between items-center group active:text-[#1d4e89]">
+                <a key={item} href={`/${item.toLowerCase()}`} onClick={() => setIsOpen(false)} className="text-xl font-bold text-slate-800 flex justify-between items-center group active:text-[#1d4e89]">
                   {item}
                   <ArrowUpRight className="text-[#72bf44]" size={20} />
                 </a>
