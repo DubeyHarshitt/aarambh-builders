@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,13 +22,17 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((item) => (
-            <a key={item} href={`/${item.toLowerCase()}`} className="text-sm font-bold text-slate-600 hover:text-[#1d4e89] transition-colors border-b-2 border-transparent hover:border-[#1d4e89] py-1">
-              {item}
-            </a>
-          ))}
-        </nav>
+       <nav className="hidden md:flex items-center gap-8">
+  {navLinks.map((item) => (
+    <Link
+      key={item}
+      to={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+      className="text-sm font-bold text-slate-600 hover:text-[#1d4e89] transition-colors border-b-2 border-transparent hover:border-[#1d4e89] py-1"
+    >
+      {item}
+    </Link>
+  ))}
+</nav>
 
         {/* Action Buttons */}
         <div className="flex items-center gap-4">
@@ -50,10 +55,10 @@ const Navbar = () => {
           <div className="fixed inset-x-0 top-20 bg-white shadow-2xl border-t border-slate-100 animate-in slide-in-from-top duration-300">
             <div className="flex flex-col p-8 gap-6">
               {navLinks.map((item) => (
-                <a key={item} href={`/${item.toLowerCase()}`} onClick={() => setIsOpen(false)} className="text-xl font-bold text-slate-800 flex justify-between items-center group active:text-[#1d4e89]">
+                <Link key={item} to={`/${item.toLowerCase().replace(/\s+/g, "-")}`} onClick={() => setIsOpen(false)} className="text-xl font-bold text-slate-800 flex justify-between items-center group active:text-[#1d4e89]">
                   {item}
                   <ArrowUpRight className="text-[#72bf44]" size={20} />
-                </a>
+                </Link>
               ))}
               <div className="mt-4 pt-8 border-t border-slate-100 flex flex-col gap-6">
                 <button className="w-full py-4 bg-[#1d4e89] text-white rounded-xl font-bold text-lg shadow-lg shadow-blue-900/20 active:scale-[0.98] transition-transform">
