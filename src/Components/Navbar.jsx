@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Logo from "../assets/logo.png"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,7 @@ const Navbar = () => {
         {/* Logo Section */}
         <div className="flex items-center gap-3">
           <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
-            <img src="/src/assets/logo.png" alt="Aarambh Logo" className="object-contain" />
+            <img src={Logo} alt="Aarambh Logo" className="object-contain" />
           </div>
           <div className="flex flex-col">
             <h2 className="text-lg md:text-xl font-extrabold tracking-tight text-[#1d4e89] uppercase leading-none">Aarambh Properties</h2>
